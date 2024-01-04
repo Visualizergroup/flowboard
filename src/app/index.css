@@ -1,0 +1,76 @@
+.dndflow {
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    background-color: #fcfcfc;
+  }
+
+  .dndflow aside {
+    border-right: 1px solid #eee;
+    padding: 15px 10px;
+    font-size: 12px;
+    background: #ffffff;
+  }
+  
+  .dndflow aside .description {
+    margin-bottom: 10px;
+  }
+  
+  .dndflow .dndnode {
+    height: 20px;
+    padding: 4px;
+    border: 1px solid #1a192b;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+  }
+
+  .dndflow .dndnode.input {
+    border-color: #0041d0;
+  }
+  
+  .dndflow .dndnode.output {
+    border-color: #ff0072;
+  }
+  
+.dndflow .reactflow-wrapper {
+    flex-grow: 1;
+    display: flex;
+  }
+  
+  
+  .dndflow .selectall {
+    margin-top: 10px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .dndflow {
+      flex-direction: row;
+    }
+  
+    .dndflow aside {
+      width: 20%;
+      max-width: 250px;
+    }
+  }
+.react-flow {
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 0 !important;
+    flex-grow: 1 !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.download-btn {
+    padding: 10px;
+    background: aquamarine;
+    border: none;
+    border-radius: 5px;
+    box-shadow: #ebebeb 1px 1px 3px 2px;
+}
