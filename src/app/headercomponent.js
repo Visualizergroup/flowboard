@@ -25,12 +25,12 @@ function HeaderComponent() {
         </Modal.Header>
         <Modal.Body>
         <p>Aloita kirjoittamalla aloitusteksti(Botin painikkeen tervehdysteksti) Tämän tekstin on tarkoitus toimia herätteenä asiakkaalle.</p>
-        <p>Saat lisättyä elementtejä vetämällä niitä flow alueelle.</p>
+        <p>Saat lisättyä elementtejä vetämällä ao. listasta flow alueelle tai klikkaamalla haluttua elementtiä.</p>
         Saat poistettua elementin valitsemalla elementin ja painamalla delete tai backspace.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Sulje
           </Button>
         </Modal.Footer>
       </Modal>

@@ -22,10 +22,10 @@ import './textupdater.css';
 
 const nodeTypes = { textUpdater: TextUpdaterNode, textUpdatercustom: TextUpdaterNodeAdder, viewText: ViewTextNode };
 const initialNodes = [
-    { id: '1', type: 'textUpdater', position: { x: 0, y: -500 }, data: { } },
-    { id: '2', type: 'viewText', position: { x: 0, y: -400 }, data: { } },
-    { id: '3', type: 'textUpdatercustom', position: { x: -220, y: -300 }, data: { } },
-    { id: '4', type: 'textUpdatercustom', position: { x: 220, y: -300 }, data: { } },
+    { id: '1', type: 'textUpdater', position: { x: 0, y: 0 }, data: { } },
+    { id: '2', type: 'viewText', position: { x: 0, y: 100 }, data: { } },
+    { id: '3', type: 'textUpdatercustom', position: { x: -220, y: 200 }, data: { } },
+    { id: '4', type: 'textUpdatercustom', position: { x: 220, y: 200 }, data: { } },
   
   ];
 
@@ -33,7 +33,7 @@ const initialNodes = [
   // we define the nodeTypes outside of the component to prevent re-renderings
   // you could also use useMemo inside the component
 
-  
+const defaultViewport = { x: 0, y: 0, zoom: -15 };
 
 let id = 0;
 const getId = () => `dndnode_${id++}`;
@@ -46,8 +46,12 @@ const DnDFlow = () => {
   const [edges, setEdges] = useState([]);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
+  const yPos = useRef(0);
+
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
+    (params) => {
+      setEdges((eds) => addEdge(params, eds));
+    },
     [],
   );
 
@@ -133,6 +137,19 @@ const DnDFlow = () => {
     [reactFlowInstance],
   );
 
+  const addNodeFromClick = useCallback( (type, nodeType) => {
+    console.log('adding node');
+    yPos.current += 10;
+    const newNode = {
+      id: getId(),
+      type: nodeType,
+      position: { x: 250, y: yPos.current },
+      data: { label: `${type} node` },
+    };
+    setNodes((nds) => nds.concat(newNode));
+    return;
+  }
+  );
   return (
     <div className="dndflow">
       <ReactFlowProvider>
@@ -150,13 +167,14 @@ const DnDFlow = () => {
             onDragOver={onDragOver}
             fitView
             variant="dark"
+            defaultViewport={defaultViewport}
 
           >
             <Controls />
             <Background color="#ccc" variant="dots" />
           </ReactFlow>
         </div>
-        <Sidebar />
+        <Sidebar onAdd={addNodeFromClick} />
       </ReactFlowProvider>
     </div>
   );
