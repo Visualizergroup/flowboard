@@ -19,15 +19,14 @@
   }
   
   .dndflow .dndnode {
+    /*cursor: grab;*/
     height: 20px;
-    padding: 4px;
+    padding: 19px;
     border: 1px solid #1a192b;
-    border-radius: 2px;
-    margin-bottom: 10px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /*cursor: grab;*/
   }
 
   .dndflow .dndnode.input {
