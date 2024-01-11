@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   addEdge,
@@ -7,6 +7,7 @@ import ReactFlow, {
   Background,
   applyEdgeChanges,
   applyNodeChanges,
+  Panel,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import './index.css';
@@ -44,7 +45,9 @@ const DnDFlow = () => {
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState([]);
+  const flowKey = 'example-flow';
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
+
 
   const yPos = useRef(0);
 
@@ -54,6 +57,26 @@ const DnDFlow = () => {
     },
     [],
   );
+  const onSave = useCallback(() => {
+    if (reactFlowInstance) {
+      const flow = reactFlowInstance.toObject();
+      localStorage.setItem(flowKey, JSON.stringify(flow));
+    }
+  }, [reactFlowInstance]);
+
+  const onRestore = useCallback(() => {
+    const restoreFlow = async () => {
+      const flow = JSON.parse(localStorage.getItem(flowKey));
+
+      if (flow) {
+        const { x = 0, y = 0, zoom = 1 } = flow.viewport;
+        setNodes(flow.nodes || []);
+        setEdges(flow.edges || []);
+      }
+    };
+
+    restoreFlow();
+  }, [setNodes]);
 
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -136,7 +159,10 @@ const DnDFlow = () => {
     },
     [reactFlowInstance],
   );
-
+ //use effect to restore saved flow on load
+  useEffect(() => {
+    onRestore();
+  }, []);
   const addNodeFromClick = useCallback( (type, nodeType) => {
     console.log('adding node');
     yPos.current += 10;
@@ -172,6 +198,11 @@ const DnDFlow = () => {
           >
             <Controls />
             <Background color="#ccc" variant="dots" />
+            <Panel position="top-right">
+        <button className='save-btn' onClick={onSave}>Tallenna</button>
+        <button className='save-btn' onClick={onRestore}>Palauta</button>
+      
+      </Panel>
           </ReactFlow>
         </div>
         <Sidebar onAdd={addNodeFromClick} />

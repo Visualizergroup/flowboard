@@ -78,7 +78,14 @@
 button:active, .dndnode:active {
   box-shadow: #ebebeb 1px 1px 3px 2px;
   vertical-align: top;
-  padding: 13px;
+  transform: translateY(2px);
+  transition: all 0.2s ease;
+}
+button:hover, .dndnode:hover {
+  box-shadow: #ebebeb 1px 1px 3px 2px;
+  vertical-align: top;
+  transform: translateY(2px);
+  transition: all 0.2s ease;
 }
 
 .react-flow__node.selected {
@@ -86,4 +93,12 @@ button:active, .dndnode:active {
   box-shadow: #0041d0 0px 0px 0px 2px;
   z-index: 10;
   border-radius: 6px;
+}
+
+.save-btn {
+  margin: 11px;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: none;
+  background: #ccdfff;
 }
