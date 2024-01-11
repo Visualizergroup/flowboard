@@ -64,6 +64,12 @@ const DnDFlow = () => {
     }
   }, [reactFlowInstance]);
 
+  const onResetFlow = useCallback(() => {
+    setNodes(initialNodes);
+    setEdges([]);
+  }, [setNodes]);
+
+
   const onRestore = useCallback(() => {
     const restoreFlow = async () => {
       const flow = JSON.parse(localStorage.getItem(flowKey));
@@ -201,6 +207,7 @@ const DnDFlow = () => {
             <Panel position="top-right">
         <button className='save-btn' onClick={onSave}>Tallenna</button>
         <button className='save-btn' onClick={onRestore}>Palauta</button>
+        <button className='save-btn' onClick={onResetFlow}>Nollaa</button>
       
       </Panel>
           </ReactFlow>
