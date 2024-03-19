@@ -23,14 +23,20 @@ import './textupdater.css';
 
 const nodeTypes = { textUpdater: TextUpdaterNode, textUpdatercustom: TextUpdaterNodeAdder, viewText: ViewTextNode };
 const initialNodes = [
-  {"nodes":[{"width":205,"height":89,"id":"1","type":"textUpdater","position":{"x":0,"y":0},"data":{},"positionAbsolute":{"x":0,"y":0}},{"width":205,"height":104,"id":"2","type":"viewText","position":{"x":0,"y":117.69697209598206},"data":{},"selected":false,"positionAbsolute":{"x":0,"y":117.69697209598206},"dragging":false},{"width":198,"height":80,"id":"3","type":"textUpdatercustom","position":{"x":-154.82730992969766,"y":277.9495055332444},"data":{},"positionAbsolute":{"x":-154.82730992969766,"y":277.9495055332444},"selected":true,"dragging":false},{"width":198,"height":80,"id":"4","type":"textUpdatercustom","position":{"x":220,"y":277.11568436900126},"data":{},"positionAbsolute":{"x":220,"y":277.11568436900126},"selected":false,"dragging":false}],"edges":[{"source":"2","sourceHandle":"b","target":"1","targetHandle":"asd","id":"reactflow__edge-2b-1asd"},{"source":"4","sourceHandle":null,"target":"2","targetHandle":"a","id":"reactflow__edge-4-2a"},{"source":"3","sourceHandle":null,"target":"2","targetHandle":"a","id":"reactflow__edge-3-2a"}],"viewport":{"x":406.91335796543405,"y":64.98166508384139,"zoom":1.3227294992597696}}
-
+  {"width":205,"height":89,"id":"1","type":"textUpdater","position":{"x":0,"y":0},"data":{},"positionAbsolute":{"x":0,"y":0}},
+  {"width":205,"height":104,"id":"2","type":"viewText","position":{"x":0,"y":117.69697209598206},
+  "data":{},"selected":false,"positionAbsolute":{"x":0,"y":117.69697209598206},"dragging":false},
+  {"width":198,"height":80,"id":"3","type":"textUpdatercustom","position":{"x":-154.82730992969766,"y":277.9495055332444},
+  "data":{},"positionAbsolute":{"x":-154.82730992969766,"y":277.9495055332444},"selected":true,"dragging":false},
+  {"width":198,"height":80,"id":"4","type":"textUpdatercustom","position":{"x":220,"y":277.11568436900126},
+  "data":{},"positionAbsolute":{"x":220,"y":277.11568436900126},"selected":false,"dragging":false}
     /*{ id: '1', type: 'textUpdater', position: { x: 0, y: 0 }, data: { } },
     { id: '2', type: 'viewText', position: { x: 0, y: 100 }, data: { } },
     { id: '3', type: 'textUpdatercustom', position: { x: -220, y: 200 }, data: { } },
     { id: '4', type: 'textUpdatercustom', position: { x: 220, y: 200 }, data: { } },
   */
   ];
+  const initialEdges = [{"source":"2","sourceHandle":"b","target":"1","targetHandle":"asd","id":"reactflow__edge-2b-1asd"},{"source":"4","sourceHandle":null,"target":"2","targetHandle":"a","id":"reactflow__edge-4-2a"},{"source":"3","sourceHandle":null,"target":"2","targetHandle":"a","id":"reactflow__edge-3-2a"}];
 
 
   // we define the nodeTypes outside of the component to prevent re-renderings
@@ -46,7 +52,7 @@ const snapGrid = [25, 25];
 const DnDFlow = () => {
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState([]);
+  const [edges, setEdges] = useState(initialEdges);
   const flowKey = 'example-flow';
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
