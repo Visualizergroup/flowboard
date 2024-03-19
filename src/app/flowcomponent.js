@@ -16,6 +16,7 @@ import TextUpdaterNode from './customnode.js';
 import TextUpdaterNodeAdder from './customnodeadd.js';
 import ViewTextNode from './textComponent.js';
 import './textupdater.css';
+import ConnectionLine from './Customline.js';
 
 
 
@@ -61,7 +62,7 @@ const DnDFlow = () => {
 
   const onConnect = useCallback(
     (params) => {
-      setEdges((eds) => addEdge(params, eds));
+      setEdges((eds) => addEdge({...params,style: { stroke: "blue", strokeWidth: 2 }}, eds));
     },
     [],
   );
@@ -201,6 +202,7 @@ const DnDFlow = () => {
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
             onInit={setReactFlowInstance}
+            connectionLineComponent={ConnectionLine}
             nodeTypes={nodeTypes}
             snapGrid={snapGrid}
             onDrop={onDrop}
