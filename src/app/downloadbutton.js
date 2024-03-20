@@ -35,11 +35,11 @@ function DownloadButton() {
   };
 
   return (
-    <Panel>
+   
       <button className="download-btn" onClick={onClick}>
         Tallenna kuvana
       </button>
-    </Panel>
+    
   );
 }
 

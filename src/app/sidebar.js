@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import DownloadButton from './downloadbutton';
+import Infocomponent from './headercomponent';
 
 
 const SideBar = ({onAdd}) => {
@@ -43,11 +44,14 @@ const SideBar = ({onAdd}) => {
   </div>*/}
       <div className="description">Saat poistettua elementi valitsemalla sen ja painamalla delete tai backspace.</div>
       <div className="description">Tallenna botin runko kuvana painamalla alla olevaa painiketta.
-      <DownloadButton />
+      
+      
       </div>
-
+      <DownloadButton />
+      <Infocomponent />
      
     </aside>
+    
   );
 };
 

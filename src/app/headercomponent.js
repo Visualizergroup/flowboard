@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from 'react';
-import { Navbar, Button, Modal } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
-function HeaderComponent() {
+function Infocomponent() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,14 +10,10 @@ function HeaderComponent() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" className="w-100">
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
     <Button variant="primary" onClick={handleShow} className='me-3'>
       Ohjeita
     </Button>
-  </Navbar.Collapse>
-</Navbar>
+
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -38,5 +34,5 @@ function HeaderComponent() {
   );
 }
 
-export default HeaderComponent;
+export default Infocomponent;
 

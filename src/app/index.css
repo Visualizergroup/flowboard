@@ -22,16 +22,18 @@
     /*cursor: grab;*/
     height: 20px;
     padding: 19px;
-    border: 1px solid #1a192b;
+    border: 1px solid #7fffd4;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 12px;
+    width: 100%;
   }
 
   .dndflow .dndnode.input {
-    border-color: #0041d0;
+    
+    width: 100%;
   }
   
   .dndflow .dndnode.output {
@@ -72,17 +74,19 @@
     background: aquamarine;
     border: none;
     border-radius: 5px;
-    box-shadow: #ebebeb 1px 1px 3px 2px;
+    
+    margin-bottom: 40px;
+    width: 100%;
 }
 
 button:active, .dndnode:active {
-  box-shadow: #ebebeb 1px 1px 3px 2px;
+  
   vertical-align: top;
   transform: translateY(2px);
   transition: all 0.2s ease;
 }
 button:hover, .dndnode:hover {
-  box-shadow: #ebebeb 1px 1px 3px 2px;
+  
   vertical-align: top;
   transform: translateY(2px);
   transition: all 0.2s ease;
@@ -90,15 +94,51 @@ button:hover, .dndnode:hover {
 
 .react-flow__node.selected {
     border-color: #0041d0;
-  box-shadow: #0041d0 0px 0px 0px 2px;
+  
   z-index: 10;
   border-radius: 6px;
 }
 
 .save-btn {
   margin: 11px;
-  padding: 10px 50px;
-  border-radius: 5px;
+    padding: 7px 13px;
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid aquamarine;
+    background: none;
+    /*background: #6d408e;*/
+}
+
+.navcomp {
+  background-color: #712cf9;
+  width: 100%;
+}
+aside {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #282a36 !important;
+    border-left: 1px solid #b2b7d0;
+    color: white;
+}
+.me-3.btn.btn-primary {
+  margin: 0px !important;
+  position: absolute;
+  bottom: 8px;
+  background-color: transparent;
+  color: rgb(99, 97, 97);
   border: none;
-  background: #ccdfff;
+  text-decoration:underline;
+}
+
+a {
+  background: transparent;
+  background-color: transparent;
+}
+
+.react-flow__attribution {
+  background: transparent;
+  background-color: transparent;
 }
