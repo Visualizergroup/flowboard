@@ -209,12 +209,13 @@ const DnDFlow = () => {
             onDragOver={onDragOver}
             fitView
             variant="dark"
+            style={{ background: '#282a36' }}
             defaultViewport={defaultViewport}
 
           >
             <Controls />
-            <Background color="#ccc" variant="dots" />
-            <Panel position="top-right">
+            <Background color="#2b2b2b" gap={30} size={2} variant="dots" />
+            <Panel position="top-left">
         <button className='save-btn' onClick={onSave}>Tallenna</button>
         <button className='save-btn' onClick={onRestore}>Palauta</button>
         <button className='save-btn' onClick={onResetFlow}>Nollaa</button>
